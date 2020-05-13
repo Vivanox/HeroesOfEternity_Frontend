@@ -16,8 +16,8 @@
 
 <script>
 import AlertSmall from '~/components/AlertSmall'
-import DesktopIcons from '~/components/Index/GamePreview/DesktopIcons'
-import MobileIcons from '~/components/Index/GamePreview/MobileIcons'
+import DesktopIcons from '~/components/Index/Intro/DesktopIcons'
+import MobileIcons from '~/components/Index/Intro/MobileIcons'
 
 export default {
   components: {

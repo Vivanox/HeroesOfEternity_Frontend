@@ -1,6 +1,6 @@
 <template>
   <article class="h-screen">
-    <game-preview class="parallax relative h-screen" tabindex="1" />
+    <intro class="parallax relative h-screen" tabindex="1" />
 
     <about-us-excerpt
       class="parallax bg-fixed relative h-screen"
@@ -12,7 +12,7 @@
 <script>
 export default {
   components: {
-    GamePreview: () => import('~/components/Index/GamePreview'),
+    Intro: () => import('~/components/Index/Intro'),
     AboutUsExcerpt: () => import('~/components/Index/AboutUsExcerpt')
   }
 }
