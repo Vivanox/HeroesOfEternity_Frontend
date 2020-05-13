@@ -6,6 +6,8 @@
       class="parallax bg-fixed relative h-screen"
       tabindex="2"
     />
+
+    <closed-alpha class="parallax bg-fixed relative h-screen" tabindex="3" />
   </article>
 </template>
 
@@ -13,7 +15,8 @@
 export default {
   components: {
     Intro: () => import('~/components/Index/Intro'),
-    AboutUsExcerpt: () => import('~/components/Index/AboutUsExcerpt')
+    AboutUsExcerpt: () => import('~/components/Index/AboutUsExcerpt'),
+    ClosedAlpha: () => import('~/components/Index/ClosedAlpha')
   }
 }
 </script>
