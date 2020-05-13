@@ -4,12 +4,12 @@
       background: `linear-gradient(rgba(255,255,255,.9), rgba(0,0,0,.3)), url(${backgroundURL})`,
       backgroundSize: 'cover'
     }"
-    class="text-black flex items-center justify-between px-4 py-2"
+    class="text-black flex items-center justify-between px-16"
     tabindex="2"
   >
     <div class="w-3/4">
-      <h1 class="font-black text-6xl">About Us</h1>
-      <p class="text-4xl text-justify break-words">
+      <heading class="p-4">About Us</heading>
+      <paragraph class="p-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed ante
         ex. Donec elit metus, faucibus non sollicitudin ut, efficitur ut lorem.
         Fusce pellentesque orci ac accumsan congue. Fusce gravida purus nulla,
@@ -24,9 +24,9 @@
         enim feugiat a. Nam eu purus luctus, pulvinar erat et, viverra sapien.
         Vestibulum eu enim nec nulla efficitur egestas sed vel tellus. Maecenas
         facilisis leo imperdiet tellus suscipit pulvinar.
-      </p>
+      </paragraph>
 
-      <span class="inline-flex rounded-full shadow-sm mt-2">
+      <button class="inline-flex rounded-full shadow-sm mt-2">
         <nuxt-link
           to="about"
           type="button"
@@ -35,7 +35,7 @@
           Read More
           <play-icon class="ml-4" />
         </nuxt-link>
-      </span>
+      </button>
     </div>
 
     <nujani />
@@ -43,11 +43,15 @@
 </template>
 
 <script>
+import Heading from '~/components/Typography/Heading'
+import Paragraph from '~/components/Typography/Paragraph'
 import PlayIcon from '~/components/icons/PlayIcon'
 import Nujani from '~/components/characterModels/Nujani'
 
 export default {
   components: {
+    Heading,
+    Paragraph,
     PlayIcon,
     Nujani
   },
