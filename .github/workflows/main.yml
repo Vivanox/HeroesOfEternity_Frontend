@@ -35,7 +35,10 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
           
-    - run: npm install      
+    - run: npm install
+      env:
+        BASE_URL: https://heraldsofeternity.com
+        API_URL: https://api.heraldsofeternity.com
     - run: npm run build --spa
 
     - name: FTP Deploy
