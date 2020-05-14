@@ -1,13 +1,13 @@
 <template>
-  <article class="h-screen">
-    <intro class="parallax relative h-screen" tabindex="1" />
+  <article class="h-screen flex flex-col">
+    <intro class="z-50" tabindex="1" />
 
     <about-us-excerpt
-      class="parallax bg-fixed relative h-screen"
+      class="parallax bg-fixed relative xl:h-screen"
       tabindex="2"
     />
 
-    <closed-alpha class="parallax bg-fixed relative h-screen" tabindex="3" />
+    <closed-alpha class="parallax bg-fixed relative xl:h-screen" tabindex="3" />
   </article>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
-  <section class="flex flex items-center justify-between px-16">
-    <div class="w-2/4">
+  <card class="flex flex-col lg:flex-row mt-4">
+    <div class="w-full xl:w-2/4">
       <heading class="p-4 text-white">Closed Alpha</heading>
       <paragraph class="p-4 text-white">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed ante
@@ -24,7 +24,7 @@
       ref="form"
       v-slot="{ invalid, handleSubmit }"
       tag="div"
-      class="w-2/4 flex flex-col items-end"
+      class="w-full xl:w-2/4 flex flex-col items-center xl:items-end"
     >
       <ValidationProvider
         v-slot="{ errors }"
@@ -70,11 +70,12 @@
         {{ state }}
       </button>
     </ValidationObserver>
-  </section>
+  </card>
 </template>
 
 <script>
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
+import Card from '~/components/Card'
 import Heading from '~/components/Typography/Heading'
 import Paragraph from '~/components/Typography/Paragraph'
 import ExclamationCircleIcon from '~/components/icons/ExclamationCircleIcon'
@@ -88,6 +89,7 @@ const states = {
 
 export default {
   components: {
+    Card,
     Heading,
     Paragraph,
     ExclamationCircleIcon,

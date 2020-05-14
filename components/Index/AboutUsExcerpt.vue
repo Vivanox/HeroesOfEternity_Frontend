@@ -1,13 +1,11 @@
 <template>
-  <section
+  <card
     :style="{
       background: `linear-gradient(rgba(255,255,255,.9), rgba(0,0,0,.3)), url(${backgroundURL})`,
       backgroundSize: 'cover'
     }"
-    class="text-black flex items-center justify-between px-16"
-    tabindex="2"
   >
-    <div class="w-3/4">
+    <div class="w-full xl:w-3/4">
       <heading class="p-4">About Us</heading>
       <paragraph class="p-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed ante
@@ -38,11 +36,12 @@
       </button>
     </div>
 
-    <nujani />
-  </section>
+    <nujani class="hidden md:block" />
+  </card>
 </template>
 
 <script>
+import Card from '~/components/Card'
 import Heading from '~/components/Typography/Heading'
 import Paragraph from '~/components/Typography/Paragraph'
 import PlayIcon from '~/components/icons/PlayIcon'
@@ -50,6 +49,7 @@ import Nujani from '~/components/characterModels/Nujani'
 
 export default {
   components: {
+    Card,
     Heading,
     Paragraph,
     PlayIcon,
