@@ -20,7 +20,12 @@
       </paragraph>
     </div>
 
-    <div class="w-2/4 flex flex-col items-end">
+    <ValidationObserver
+      ref="form"
+      v-slot="{ invalid, handleSubmit }"
+      tag="div"
+      class="w-2/4 flex flex-col items-end"
+    >
       <ValidationProvider
         v-slot="{ errors }"
         class="pb-8 w-3/4"
@@ -52,35 +57,71 @@
         </p>
       </ValidationProvider>
 
-      <button class="rounded-full shadow-sm">
-        <nuxt-link
-          to="about"
-          type="button"
-          class="text-center px-16 py-2 border-2 text-white border-white text-base leading-6 font-black rounded-full"
-        >
-          Submit
-        </nuxt-link>
+      <button
+        class="cursor-pointer text-center px-16 py-2 border-2 text-white border-white text-base leading-6 font-black rounded-full shadow-sm"
+        :class="{
+          'bg-gray-900': state === states.WORKING,
+          'bg-green-600': state === states.SUCCESS,
+          'bg-red-500': state === states.ERROR
+        }"
+        :disabled="invalid || state === states.WORKING"
+        @click="handleSubmit(submit)"
+      >
+        {{ state }}
       </button>
-    </div>
+    </ValidationObserver>
   </section>
 </template>
 
 <script>
-import { ValidationProvider } from 'vee-validate'
+import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import Heading from '~/components/Typography/Heading'
 import Paragraph from '~/components/Typography/Paragraph'
 import ExclamationCircleIcon from '~/components/icons/ExclamationCircleIcon'
+
+const states = {
+  DEFAULT: 'Submit',
+  WORKING: 'Submitting...',
+  SUCCESS: 'Sign up created',
+  ERROR: 'Something went wrong.'
+}
 
 export default {
   components: {
     Heading,
     Paragraph,
     ExclamationCircleIcon,
-    ValidationProvider
+    ValidationProvider,
+    ValidationObserver
   },
 
   data: () => ({
+    states,
+    state: states.DEFAULT,
     email: ''
-  })
+  }),
+
+  methods: {
+    async submit() {
+      try {
+        this.state = states.WORKING
+
+        await this.$store.dispatch('alpha-sign-ups/store', {
+          email: this.email
+        })
+
+        this.state = states.SUCCESS
+      } catch (error) {
+        this.state = states.ERROR
+
+        if (error.response && error.response.status === 422) {
+          this.$refs.form.setErrors(error.response.data.errors)
+          return
+        }
+
+        throw error
+      }
+    }
+  }
 }
 </script>
