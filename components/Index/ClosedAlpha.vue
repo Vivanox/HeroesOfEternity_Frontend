@@ -1,5 +1,5 @@
 <template>
-  <card class="flex flex-col lg:flex-row mt-4">
+  <card class="flex flex-col items-center lg:flex-row mt-4">
     <div class="w-full xl:w-2/4">
       <heading class="p-4 text-white">Closed Alpha</heading>
       <paragraph class="p-4 text-white">

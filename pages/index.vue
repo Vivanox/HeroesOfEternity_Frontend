@@ -8,6 +8,8 @@
     />
 
     <closed-alpha class="parallax bg-fixed relative xl:h-screen" tabindex="3" />
+
+    <gallery class="parallax bg-fixed relative" tabindex="4" />
   </article>
 </template>
 
@@ -16,7 +18,8 @@ export default {
   components: {
     Intro: () => import('~/components/Index/Intro'),
     AboutUsExcerpt: () => import('~/components/Index/AboutUsExcerpt'),
-    ClosedAlpha: () => import('~/components/Index/ClosedAlpha')
+    ClosedAlpha: () => import('~/components/Index/ClosedAlpha'),
+    Gallery: () => import('~/components/Index/Gallery')
   }
 }
 </script>
